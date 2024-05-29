@@ -1,0 +1,159 @@
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #141e30, #243b55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    color: #f5f5f5;
+}
+
+.container {
+    background: #1f2a38;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #66fcf1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input, button {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #45a29e;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    background: #0b0c10;
+    color: #f5f5f5;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+button {
+    background: #45a29e;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background: #66fcf1;
+    transform: scale(1.05);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #45a29e;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 1s ease;
+}
+
+li.completed {
+    background: #1f2a38;
+    color: #45a29e;
+    text-decoration: line-through;
+}
+
+li button {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.checkbox {
+    margin-right: 10px;
+}
+
+.task-buttons {
+    display: none;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.task-buttons.visible {
+    display: flex;
+}
+
+.completed-section {
+    margin-top: 20px;
+}
+
+.completed-section h2 {
+    color: #66fcf1;
+}
+
+.completed-section ul li {
+    opacity: 0.6;
+}
+
+#trashBin {
+    position: absolute;
+    top: 0;
+    left: -200px;
+    width: 100px;
+    transition: transform 1s ease, left 1s ease;
+}
+
+.trashActive {
+    left: 20px;
+    transform: translateX(200px);
+}
+
+.taskMoveToTrash {
+    animation: moveToTrash 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveToTrash {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0) translateX(-200px);
+        opacity: 0;
+    }
+}
